@@ -45,11 +45,11 @@ describe Clutterbuck::Router do
 
 		context "as HEAD" do
 			let(:request_method) { "HEAD" }
-			
+
 			it "is successful" do
 				expect(status).to eq(200)
 			end
-			
+
 			it "returns no body" do
 				expect(body).to eq([])
 			end
@@ -59,7 +59,7 @@ describe Clutterbuck::Router do
 	context "a request to a non-existent path" do
 		let(:request_method) { "GET" }
 		let(:path_info)      { "/non-existent" }
-		
+
 		it "it returns a 404" do
 			expect(status).to eq(404)
 		end
@@ -76,7 +76,7 @@ describe Clutterbuck::Router do
 	context "POSTing to a GET-only resource" do
 		let(:request_method) { "POST" }
 		let(:path_info)      { "/static-get" }
-		
+
 		it "returns status 405" do
 			expect(status).to eq(405)
 		end
@@ -85,11 +85,11 @@ describe Clutterbuck::Router do
 	context "GET to a regexp route" do
 		let(:request_method) { "GET" }
 		let(:path_info)      { "/regex-get/foo/bar" }
-		
+
 		it "is successful" do
 			expect(status).to eq(200)
 		end
-		
+
 		it "gives back the captured path element" do
 			expect(body).to eq(["foo"])
 		end

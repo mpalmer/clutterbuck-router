@@ -14,12 +14,12 @@ module Clutterbuck::Router
 	# Signals that the router got a 404.  Should never escape the app call.
 	#
 	class NotFoundError < StandardError; end
-	
+
 	#:nodoc:
 	# Signals that the router got a 405.  Should never escape the app call.
 	#
 	class MethodNotAllowedError < StandardError; end
-	
+
 	# All of the methods to define the app's routing behaviour are defined
 	# on the class, because that's where the config lives.  Instances of the
 	# app class are created to handle requests.
@@ -245,7 +245,7 @@ module Clutterbuck::Router
 	#
 	def call
 		path = env["PATH_INFO"].empty? ? "/" : env["PATH_INFO"]
-		
+
 		begin
 			route = self.class.find_route(env["REQUEST_METHOD"], path)
 		rescue Clutterbuck::Router::NotFoundError

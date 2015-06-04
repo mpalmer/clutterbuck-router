@@ -37,7 +37,7 @@ Now, you define the routes you wish the application to respond to:
 
     class ExampleApp
       include Clutterbuck::Router
-      
+
       get '/' do
         [200, [["Content-Type", "text/plain"]], ["Ohai!"]]
       end

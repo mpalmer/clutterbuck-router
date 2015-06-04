@@ -47,7 +47,7 @@ class Clutterbuck::Router::Route
 
 	# Execute the handler for the route
 	#
-	# Run the method 
+	# Run the method
 	def run(obj, path)
 		args = case @path_match
 			when String then []
